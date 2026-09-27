@@ -3,372 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calles Vivas | Smart City Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Calles Vivas | Soluciones de Ciudad Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta Premium Tecnológica */
-            --bg-dark: #030712;
-            --primary-blue: #0f172a;
-            --accent-cyan: #06b6d4;
-            --accent-glow: rgba(6, 182, 212, 0.4);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --glass-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --focus-ring: #fbbf24;
+            /* Colores simples y de alto contraste (Aa) para baja visión y espectro autista */
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --primary-color: #004488; /* Azul oscuro con alto contraste */
+            --secondary-bg: #f4f4f5;
+            --focus-outline: #ffaa00; /* Color claro para foco de teclado */
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(29, 78, 216, 0.08) 0%, transparent 50%);
-            color: var(--text-main);
-            line-height: 1.7;
-            font-size: 18px;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 18px; /* Tamaño de fuente legible */
+            margin: 0;
+            padding: 0;
+            /* Alineación a la izquierda recomendada para dislexia */
+            text-align: left; 
         }
 
-        h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3 {
+            color: var(--primary-color);
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
 
-        /* ACCESIBILIDAD: Foco visible de alta prioridad */
-        a:focus-visible, button:focus-visible {
-            outline: 3px solid var(--focus-ring) !important;
+        /* Estructura Operable: Foco visible y claro para navegación por teclado */
+        a:focus, button:focus {
+            outline: 4px solid var(--focus-outline);
             outline-offset: 4px;
             border-radius: 4px;
         }
 
-        /* Menú Glassmorphism */
         header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(3, 7, 18, 0.8);
-            backdrop-filter: blur(12px); /* Efecto cristal */
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 20px 40px;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
         }
 
-        .logo { 
-            color: var(--text-main); 
-            font-size: 1.8rem; 
-            font-weight: 900; 
-            text-decoration: none; 
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        /* Patrón de diseño establecido: el logo enlaza a la página de inicio */
+        .logo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
         }
-        
-        .logo span { color: var(--accent-cyan); }
-        .logo::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent-cyan);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-cyan);
+
+        nav {
+            display: flex;
+            gap: 20px;
         }
 
         nav a {
-            color: var(--text-muted);
+            color: #ffffff;
             text-decoration: none;
-            margin-left: 40px;
-            font-size: 0.9rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.3s ease;
+            padding: 10px; /* Área de clic grande */
         }
-        
-        nav a:hover, nav a:focus { color: var(--text-main); text-shadow: 0 0 8px var(--accent-glow); }
 
-        /* Hero Section Cinematográfico */
+        nav a:hover, nav a:focus {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Diseño lineal y lógico */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 120px 20px 60px;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.4), var(--bg-dark)),
-                        url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80') center/cover;
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .tagline {
-            display: inline-block;
-            padding: 8px 16px;
-            background: var(--glass-bg);
-            border: 1px solid var(--accent-cyan);
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: var(--accent-cyan);
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-
-        .hero h1 { 
-            font-size: 4.5rem; 
-            margin-bottom: 30px; 
-            line-height: 1.05; 
-            font-weight: 900;
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p { 
-            font-size: 1.3rem; 
-            color: var(--text-muted); 
-            margin-bottom: 50px;
-            font-weight: 400;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Botones Premium */
-        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        
-        .btn {
-            padding: 18px 45px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-cyan);
-            color: var(--bg-dark);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
-            transform: translateY(-3px);
-            background-color: #0891b2;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: var(--glass-bg);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-cyan);
-            transform: translateY(-3px);
-            background: rgba(15, 23, 42, 0.8);
-        }
-
-        /* Contenido Principal (Tarjetas Glassmorphism) */
-        main { max-width: 1400px; margin: 80px auto; padding: 0 40px; }
-
-        .section-header { text-align: center; margin-bottom: 70px; }
-        .section-header h2 { font-size: 2.5rem; font-weight: 800; }
-        .section-header span { color: var(--accent-cyan); }
-
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-        }
-
-        .bento-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 50px 40px;
-            transition: transform 0.4s ease, border-color 0.4s ease;
-            animation: fadeUp 1s ease forwards;
-            opacity: 0;
-            animation-delay: 0.3s;
-        }
-
-        .bento-card:nth-child(2) { animation-delay: 0.5s; }
-
-        .bento-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(6, 182, 212, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .icon-wrapper {
-            width: 60px; height: 60px;
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 25px;
-            color: var(--accent-cyan);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .bento-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main); }
-        .bento-card p { color: var(--text-muted); font-size: 1.05rem; }
-
-        /* Banner de Imagen */
-        .feature-banner {
-            margin-top: 60px;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid var(--glass-border);
-            animation: fadeUp 1s ease forwards;
-            animation-delay: 0.7s;
-            opacity: 0;
-        }
-
-        .feature-banner img {
-            width: 100%; height: 500px;
-            object-fit: cover;
-            display: block;
-            filter: brightness(0.8) contrast(1.1);
-            transition: transform 0.7s ease;
-        }
-
-        .feature-banner:hover img { transform: scale(1.03); }
-
-        footer {
-            background: #020617;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
+            background-color: var(--secondary-bg);
             padding: 40px;
-            margin-top: 100px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
+            border-radius: 8px;
+            margin-bottom: 40px;
         }
 
-        /* Animaciones */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-top: 0;
         }
 
-        /* ACCESIBILIDAD AVANZADA (POUR - Operable/Robust) */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr 1fr;
             }
         }
 
-        /* Responsividad */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 3rem; }
-            .nav-container { flex-direction: column; gap: 20px; padding: 20px; }
-            nav a { margin: 0 10px; font-size: 0.8rem; }
-            .btn-group { flex-direction: column; width: 100%; }
-            .btn { width: 100%; text-align: center; }
-            .feature-banner img { height: 300px; }
-            main { padding: 0 20px; }
+        .card {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        /* Áreas de acción grandes para usuarios con discapacidades motoras */
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            /* Evitamos mayúsculas sostenidas para facilitar la lectura a usuarios con dislexia */
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: #002244;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: left;
+            padding: 30px 40px;
+            margin-top: 40px;
+            border-top: 2px solid #e5e5e5;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">CALLES<span>VIVAS</span></a>
-            <nav aria-label="Navegación principal">
-                <a href="#tecnologia">Tecnología B2G</a>
-                <a href="#operaciones">Operaciones</a>
-                <a href="#talento">Únete al Equipo</a>
-            </nav>
-        </div>
+        <!-- Logo que funciona como enlace a la página principal -->
+        <a href="/" class="logo">Calles Vivas</a>
+        <nav aria-label="Navegación principal">
+            <a href="#tecnologia">Tecnología</a>
+            <a href="#operaciones">Operaciones</a>
+            <a href="#talento">Bolsa de trabajo</a>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-            <span class="tagline">Smart Cities Inclusivas</span>
-            <h1>Inteligencia Urbana <br>para Vías Seguras</h1>
-            <p>Implementamos infraestructura holográfica gestionada a través de un ecosistema laboral diseñado para talento diverso. Optimizamos la seguridad peatonal y rompemos barreras de empleabilidad.</p>
+    <main>
+        <section class="hero">
+            <h1>Inteligencia urbana para calles más seguras</h1>
+            <!-- Párrafos cortos y alineados a la izquierda en lenguaje claro (Plain English) -->
+            <p>Usamos proyecciones de luz en los cruces peatonales para detener a los vehículos. Esto hace que cruzar la calle sea seguro para todos.</p>
+            <p>Nuestro centro de control está operado por jóvenes y personas con discapacidad motriz. Ofrecemos trabajos accesibles y estables.</p>
             
             <div class="btn-group">
-                <!-- Redirige a Incluyeme.com, el portal líder en Latinoamérica para empleo de personas con discapacidad -->
-                <a href="https://www.incluyeme.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Acceder al portal de reclutamiento para talento inclusivo">Talento Inclusivo</a>
-                
-                <!-- Redirige a la OMS (Organización Mundial de la Salud) a su sección de políticas de Seguridad Vial para gobiernos -->
-                <a href="https://www.who.int/es/health-topics/road-safety" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Solicitar información de seguridad vial para el sector público">Sector Público</a>
+                <a href="https://www.incluyeme.com/" target="_blank" rel="noopener noreferrer" class="btn">Trabaja con nosotros</a>
+                <a href="https://www.who.int/es/health-topics/road-safety" target="_blank" rel="noopener noreferrer" class="btn">Información para gobiernos</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <main>
-        <div class="section-header">
-            <h2>Ecosistema <span>Operativo</span></h2>
-        </div>
-
-        <div class="bento-grid">
-            <div class="bento-card" id="tecnologia">
-                <div class="icon-wrapper" aria-hidden="true">01</div>
-                <h3>Proyección Holográfica</h3>
-                <p>Despliegue de emisores en intersecciones de alta siniestralidad. Generamos barreras visuales efectivas que actúan como reductores de velocidad psicológicos, disminuyendo drásticamente la tasa de accidentes viales.</p>
+        <section class="content-grid">
+            <div class="card" id="tecnologia">
+                <h2>Proyección holográfica</h2>
+                <p>Instalamos proyectores en cruces peligrosos. Las luces crean una barrera visual en el suelo. Los conductores ven las luces y reducen la velocidad de inmediato, previniendo accidentes.</p>
+                <div class="image-container">
+                    <!-- Texto alternativo descriptivo -->
+                    <img src="https://images.unsplash.com/photo-1517646287270-a569ca454a88?auto=format&fit=crop&w=800&q=80" alt="Crucero peatonal iluminado en la noche mostrando un camino seguro para las personas.">
+                </div>
             </div>
             
-            <div class="bento-card" id="operaciones">
-                <div class="icon-wrapper" aria-hidden="true">02</div>
-                <h3>Centro de Monitoreo Central</h3>
-                <p>La red de dispositivos es supervisada 24/7. Nuestro modelo garantiza que las posiciones operativas clave sean ocupadas exclusivamente por jóvenes y especialistas con discapacidad motriz, dotándolos de independencia financiera.</p>
+            <div class="card" id="operaciones">
+                <h2>Centro de monitoreo</h2>
+                <p>Nuestros sistemas se supervisan todo el tiempo desde una oficina adaptada. Contratamos a personas con discapacidad motriz para operar la tecnología, brindándoles un salario justo y un espacio de trabajo sin barreras.</p>
+                <div class="image-container">
+                    <!-- Texto alternativo descriptivo -->
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Persona usando una computadora en un escritorio accesible y bien iluminado.">
+                </div>
             </div>
-        </div>
-
-        <div class="feature-banner" aria-label="Instalaciones corporativas de Calles Vivas">
-            <!-- ACCESIBILIDAD: Atributo alt altamente descriptivo -->
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Sala de servidores y centro de control tecnológico corporativo, iluminado con luz azul, representando nuestro entorno de trabajo 100% accesible.">
-        </div>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Calles Vivas. Arquitectura web diseñada por expertos bajo la Metodología POUR y estándares W3C.</p>
+        <p>Modelo de Negocio Inclusivo - Calles Vivas, 2026.</p>
+        <p>Diseño web desarrollado siguiendo estrictamente la Metodología POUR.</p>
     </footer>
 
 </body>
