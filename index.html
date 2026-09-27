@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- ROBUST: Meta viewport asegura que el diseño sea responsivo en celulares -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calles Vivas - Tecnología e Inclusión</title>
+    <style>
+        /* PERCEIVABLE: Alto contraste (Fondo blanco, texto muy oscuro, detalles en azul marino) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --primary: #003366; 
+            --focus-outline: #ffcc00;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 18px; /* UNDERSTANDABLE: Letra grande y legible */
+        }
+        /* OPERABLE: Indicador visual claro cuando se navega con la tecla TAB */
+        a:focus, button:focus {
+            outline: 4px solid var(--focus-outline);
+            outline-offset: 4px;
+        }
+        header { 
+            background-color: var(--primary); 
+            color: white; 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        /* UNDERSTANDABLE: Navegación simple y predecible */
+        nav { 
+            background-color: #333; 
+            text-align: center; 
+            padding: 10px;
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            padding: 15px 25px; 
+            display: inline-block; 
+            font-weight: bold;
+        }
+        nav a:hover { background-color: #555; }
+        main { padding: 20px; max-width: 900px; margin: 0 auto; }
+        h2 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px;}
+        .hero { text-align: center; margin-bottom: 40px; }
+        .img-container img {
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+        /* OPERABLE: Botones grandes y separados para personas con dificultades motrices finas */
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        footer { background: #f1f1f1; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem;}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Calles Vivas</h1>
+        <p>Proyecciones Holográficas para la Seguridad Peatonal y el Empoderamiento Social</p>
+    </header>
+
+    <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#impacto">Nuestro Impacto</a>
+        <a href="#equipo">Únete al Equipo</a>
+    </nav>
+
+    <main>
+        <section id="inicio" class="hero">
+            <h2>Tecnología Operada por Talento Sin Límites</h2>
+            <p>Hacemos que las ciudades sean más seguras para los peatones utilizando proyecciones de luz en cruces peligrosos, operadas 100% por jóvenes y personas con discapacidad motriz.</p>
+            <div class="img-container">
+                <!-- PERCEIVABLE: Atributo alt descriptivo para lectores de pantalla -->
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Persona usando una computadora en una oficina moderna y accesible, ilustrando inclusión laboral.">
+            </div>
+        </section>
+
+        <section id="impacto">
+            <h2>¿Cómo Funciona?</h2>
+            <p>Nuestros sistemas generan barreras visuales que detienen a los vehículos. Detrás de esta tecnología, existe un centro de monitoreo donde ofrecemos empleos formales, capacitación tecnológica continua y un entorno laboral 100% accesible.</p>
+        </section>
+
+        <section id="equipo">
+            <h2>Transfórmate en un Gestor de Smart Cities</h2>
+            <p>Si buscas un espacio donde tus habilidades técnicas transformen vidas y mejoren la ciudad, este es tu lugar. Contamos con procesos de reclutamiento empáticos y accesibles.</p>
+            <div class="buttons">
+                <!-- OPERABLE: Áreas de clic amplias -->
+                <a href="#" class="btn" aria-label="Formulario para postularse a una vacante">Únete al equipo</a>
+                <a href="#" class="btn" aria-label="Formulario de contacto general">Contáctanos</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Modelo de Negocio Inclusivo - Calles Vivas. Diseño basado en Metodología POUR.</p>
+    </footer>
+
+</body>
+</html>
