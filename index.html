@@ -7,12 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Colores simples y de alto contraste (Aa) para baja visión y espectro autista */
-            --bg-color: #ffffff;
-            --text-color: #111111;
-            --primary-color: #004488; /* Azul oscuro con alto contraste */
-            --secondary-bg: #f4f4f5;
-            --focus-outline: #ffaa00; /* Color claro para foco de teclado */
+            /* Tema oscuro empresarial de alto contraste para baja visión */
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --primary-color: #38bdf8; 
+            --secondary-bg: #1e293b;
+            --btn-bg: #0284c7;
+            --btn-hover: #0369a1;
+            --focus-outline: #facc15; 
         }
 
         body {
@@ -20,10 +22,9 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            font-size: 18px; /* Tamaño de fuente legible */
+            font-size: 18px; 
             margin: 0;
             padding: 0;
-            /* Alineación a la izquierda recomendada para dislexia */
             text-align: left; 
         }
 
@@ -33,7 +34,6 @@
             margin-bottom: 15px;
         }
 
-        /* Estructura Operable: Foco visible y claro para navegación por teclado */
         a:focus, button:focus {
             outline: 4px solid var(--focus-outline);
             outline-offset: 4px;
@@ -41,8 +41,8 @@
         }
 
         header {
-            background-color: var(--primary-color);
-            color: #ffffff;
+            background-color: var(--secondary-bg);
+            border-bottom: 2px solid #334155;
             padding: 20px 40px;
             display: flex;
             flex-wrap: wrap;
@@ -50,9 +50,8 @@
             align-items: center;
         }
 
-        /* Patrón de diseño establecido: el logo enlaza a la página de inicio */
         .logo {
-            color: #ffffff;
+            color: var(--text-color);
             font-size: 1.5rem;
             font-weight: 700;
             text-decoration: none;
@@ -64,14 +63,15 @@
         }
 
         nav a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
-            padding: 10px; /* Área de clic grande */
+            padding: 10px;
         }
 
         nav a:hover, nav a:focus {
             text-decoration: underline;
+            color: var(--primary-color);
         }
 
         main {
@@ -80,12 +80,12 @@
             padding: 40px 20px;
         }
 
-        /* Diseño lineal y lógico */
         .hero {
             background-color: var(--secondary-bg);
             padding: 40px;
             border-radius: 8px;
             margin-bottom: 40px;
+            border-left: 6px solid var(--primary-color);
         }
 
         .hero h1 {
@@ -110,9 +110,9 @@
             background-color: var(--secondary-bg);
             padding: 30px;
             border-radius: 8px;
+            border-top: 4px solid var(--primary-color);
         }
 
-        /* Áreas de acción grandes para usuarios con discapacidades motoras */
         .btn-group {
             display: flex;
             gap: 20px;
@@ -121,7 +121,7 @@
         }
 
         .btn {
-            background-color: var(--primary-color);
+            background-color: var(--btn-bg);
             color: #ffffff;
             padding: 15px 30px;
             font-size: 1.1rem;
@@ -129,16 +129,16 @@
             text-decoration: none;
             border-radius: 6px;
             display: inline-block;
-            /* Evitamos mayúsculas sostenidas para facilitar la lectura a usuarios con dislexia */
         }
 
         .btn:hover, .btn:focus {
-            background-color: #002244;
+            background-color: var(--btn-hover);
         }
 
         .image-container img {
             width: 100%;
-            height: auto;
+            height: 250px;
+            object-fit: cover;
             border-radius: 8px;
             margin-top: 20px;
         }
@@ -148,14 +148,13 @@
             text-align: left;
             padding: 30px 40px;
             margin-top: 40px;
-            border-top: 2px solid #e5e5e5;
+            border-top: 2px solid #334155;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Logo que funciona como enlace a la página principal -->
         <a href="/" class="logo">Calles Vivas</a>
         <nav aria-label="Navegación principal">
             <a href="#tecnologia">Tecnología</a>
@@ -167,7 +166,6 @@
     <main>
         <section class="hero">
             <h1>Inteligencia urbana para calles más seguras</h1>
-            <!-- Párrafos cortos y alineados a la izquierda en lenguaje claro (Plain English) -->
             <p>Usamos proyecciones de luz en los cruces peatonales para detener a los vehículos. Esto hace que cruzar la calle sea seguro para todos.</p>
             <p>Nuestro centro de control está operado por jóvenes y personas con discapacidad motriz. Ofrecemos trabajos accesibles y estables.</p>
             
@@ -182,8 +180,7 @@
                 <h2>Proyección holográfica</h2>
                 <p>Instalamos proyectores en cruces peligrosos. Las luces crean una barrera visual en el suelo. Los conductores ven las luces y reducen la velocidad de inmediato, previniendo accidentes.</p>
                 <div class="image-container">
-                    <!-- Texto alternativo descriptivo -->
-                    <img src="https://images.unsplash.com/photo-1517646287270-a569ca454a88?auto=format&fit=crop&w=800&q=80" alt="Crucero peatonal iluminado en la noche mostrando un camino seguro para las personas.">
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="Crucero peatonal iluminado en la noche mostrando un camino seguro para las personas.">
                 </div>
             </div>
             
@@ -191,7 +188,6 @@
                 <h2>Centro de monitoreo</h2>
                 <p>Nuestros sistemas se supervisan todo el tiempo desde una oficina adaptada. Contratamos a personas con discapacidad motriz para operar la tecnología, brindándoles un salario justo y un espacio de trabajo sin barreras.</p>
                 <div class="image-container">
-                    <!-- Texto alternativo descriptivo -->
                     <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Persona usando una computadora en un escritorio accesible y bien iluminado.">
                 </div>
             </div>
