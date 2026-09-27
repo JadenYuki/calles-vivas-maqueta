@@ -3,164 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calles Vivas | Soluciones Smart City</title>
-    <!-- Importación de tipografías corporativas -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Calles Vivas | Smart City Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Paleta corporativa de alto contraste (PERCEIVABLE) */
-            --primary-dark: #0B132B;   /* Azul nocturno profundo */
-            --primary-blue: #1C2541;   /* Azul corporativo */
-            --accent-cyan: #00A8E8;    /* Acento tecnológico */
-            --text-main: #1A1F36;      /* Gris muy oscuro para lectura cómoda */
-            --text-muted: #4F566B;     /* Gris medio */
-            --bg-light: #F7F9FC;       /* Fondo gris extra claro */
-            --white: #FFFFFF;
-            --focus-ring: #FFB000;     /* Amarillo para alto contraste de teclado */
+            /* Paleta Premium Tecnológica */
+            --bg-dark: #030712;
+            --primary-blue: #0f172a;
+            --accent-cyan: #06b6d4;
+            --accent-glow: rgba(6, 182, 212, 0.4);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --focus-ring: #fbbf24;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(29, 78, 216, 0.08) 0%, transparent 50%);
             color: var(--text-main);
             line-height: 1.7;
-            font-size: 18px; /* UNDERSTANDABLE: Tamaño óptimo para lectura */
+            font-size: 18px;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 
-        /* OPERABLE: Enfoque claro para navegación por teclado */
-        a:focus, button:focus, input:focus {
-            outline: 4px solid var(--focus-ring);
-            outline-offset: 3px;
+        /* ACCESIBILIDAD: Foco visible de alta prioridad */
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--focus-ring) !important;
+            outline-offset: 4px;
+            border-radius: 4px;
         }
 
-        /* Barra de navegación ejecutiva */
+        /* Menú Glassmorphism */
         header {
-            background-color: var(--primary-dark);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(12px); /* Efecto cristal */
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 20px 40px;
         }
 
-        .logo { color: var(--white); font-size: 1.5rem; font-weight: 800; text-decoration: none; letter-spacing: 1px;}
-        .logo span { color: var(--accent-cyan); }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: color 0.3s;
+        .logo { 
+            color: var(--text-main); 
+            font-size: 1.8rem; 
+            font-weight: 900; 
+            text-decoration: none; 
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        nav a:hover { color: var(--accent-cyan); }
+        .logo span { color: var(--accent-cyan); }
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
 
-        /* Hero Section */
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover, nav a:focus { color: var(--text-main); text-shadow: 0 0 8px var(--accent-glow); }
+
+        /* Hero Section Cinematográfico */
         .hero {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 100px 30px;
-            text-align: center;
-            border-bottom: 5px solid var(--accent-cyan);
-        }
-
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px auto; color: #D1D5DB; }
-
-        /* Contenedor principal */
-        main {
-            max-width: 1200px;
-            margin: -40px auto 40px auto;
-            padding: 0 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            z-index: 10;
+            padding: 120px 20px 60px;
+            overflow: hidden;
         }
 
-        /* Diseño en Tarjetas (Cards) */
-        .card-grid {
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(3, 7, 18, 0.4), var(--bg-dark)),
+                        url('https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1920&q=80') center/cover;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--accent-cyan);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 30px; 
+            line-height: 1.05; 
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p { 
+            font-size: 1.3rem; 
+            color: var(--text-muted); 
+            margin-bottom: 50px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Botones Premium */
+        .btn-group { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 18px 45px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
+            transform: translateY(-3px);
+            background-color: #0891b2;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        /* Contenido Principal (Tarjetas Glassmorphism) */
+        main { max-width: 1400px; margin: 80px auto; padding: 0 40px; }
+
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; }
+        .section-header span { color: var(--accent-cyan); }
+
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
         }
 
-        .card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-dark);
+        .bento-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 50px 40px;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+            animation-delay: 0.3s;
         }
 
-        .card h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; }
-        
-        .image-card {
-            background: var(--white);
+        .bento-card:nth-child(2) { animation-delay: 0.5s; }
+
+        .bento-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .icon-wrapper {
+            width: 60px; height: 60px;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
             border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 25px;
+            color: var(--accent-cyan);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .bento-card h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main); }
+        .bento-card p { color: var(--text-muted); font-size: 1.05rem; }
+
+        /* Banner de Imagen */
+        .feature-banner {
+            margin-top: 60px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+            position: relative;
+            border: 1px solid var(--glass-border);
+            animation: fadeUp 1s ease forwards;
+            animation-delay: 0.7s;
+            opacity: 0;
         }
 
-        .image-card img {
-            width: 100%;
-            height: 400px;
+        .feature-banner img {
+            width: 100%; height: 500px;
             object-fit: cover;
             display: block;
+            filter: brightness(0.8) contrast(1.1);
+            transition: transform 0.7s ease;
         }
 
-        /* Botones corporativos (OPERABLE) */
-        .btn-container { text-align: center; margin-top: 50px; }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-cyan);
-            color: var(--primary-dark);
-            padding: 18px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 8px;
-            margin: 10px;
-            transition: all 0.3s;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-dark);
-            border: 2px solid var(--primary-dark);
-        }
-
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 168, 232, 0.3); }
-        .btn-outline:hover { background-color: var(--primary-dark); color: var(--white); }
+        .feature-banner:hover img { transform: scale(1.03); }
 
         footer {
-            background-color: var(--primary-dark);
-            color: var(--text-muted);
+            background: #020617;
+            border-top: 1px solid var(--glass-border);
             text-align: center;
-            padding: 30px;
+            padding: 40px;
+            margin-top: 100px;
+            color: var(--text-muted);
             font-size: 0.9rem;
         }
 
-        /* ROBUST: Diseño adaptativo para dispositivos móviles */
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            nav a { margin: 0 15px; }
-            .hero h1 { font-size: 2rem; }
-            .hero { padding: 60px 20px 80px 20px; }
-            .btn { display: block; width: 100%; margin: 15px 0; }
+        /* Animaciones */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ACCESIBILIDAD AVANZADA (POUR - Operable/Robust) */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Responsividad */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .nav-container { flex-direction: column; gap: 20px; padding: 20px; }
+            nav a { margin: 0 10px; font-size: 0.8rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; text-align: center; }
+            .feature-banner img { height: 300px; }
+            main { padding: 0 20px; }
         }
     </style>
 </head>
@@ -169,47 +317,55 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo">CALLES<span>VIVAS</span></a>
-            <!-- UNDERSTANDABLE: Menú claro y predecible -->
             <nav aria-label="Navegación principal">
-                <a href="#soluciones">Soluciones</a>
-                <a href="#impacto">Impacto ESG</a>
-                <a href="#talento">Talento Inclusivo</a>
+                <a href="#tecnologia">Tecnología B2G</a>
+                <a href="#operaciones">Operaciones</a>
+                <a href="#talento">Únete al Equipo</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <h1>Inteligencia Urbana para Vías Seguras</h1>
-        <p>Implementamos sistemas de proyecciones holográficas peatonales operadas por centros de monitoreo inclusivos. Tecnología de vanguardia que protege vidas y fomenta la integración laboral.</p>
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <span class="tagline">Smart Cities Inclusivas</span>
+            <h1>Inteligencia Urbana <br>para Vías Seguras</h1>
+            <p>Implementamos infraestructura holográfica gestionada a través de un ecosistema laboral diseñado para talento diverso. Optimizamos la seguridad peatonal y rompemos barreras de empleabilidad.</p>
+            
+            <div class="btn-group">
+                <a href="#talento" class="btn btn-primary" aria-label="Acceder al portal de reclutamiento para talento inclusivo">Talento Inclusivo</a>
+                <a href="#" class="btn btn-secondary" aria-label="Solicitar información para el sector público">Sector Público</a>
+            </div>
+        </div>
     </section>
 
     <main>
-        <div class="image-card">
-            <!-- PERCEIVABLE: Texto alternativo detallado -->
-            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80" alt="Vista interior de oficinas corporativas modernas iluminadas por el sol, representando el entorno laboral inclusivo de nuestro equipo de monitoreo.">
+        <div class="section-header">
+            <h2>Ecosistema <span>Operativo</span></h2>
         </div>
 
-        <div class="card-grid">
-            <div class="card" id="soluciones">
-                <h2>Tecnología Holográfica</h2>
-                <p>Nuestra infraestructura B2G genera barreras visuales de alto impacto en cruces críticos. Los hologramas actúan como reductores de velocidad psicológicos, disminuyendo la siniestralidad urbana mediante tecnología no invasiva.</p>
+        <div class="bento-grid">
+            <div class="bento-card" id="tecnologia">
+                <div class="icon-wrapper" aria-hidden="true">01</div>
+                <h3>Proyección Holográfica</h3>
+                <p>Despliegue de emisores en intersecciones de alta siniestralidad. Generamos barreras visuales efectivas que actúan como reductores de velocidad psicológicos, disminuyendo drásticamente la tasa de accidentes viales.</p>
             </div>
             
-            <div class="card" id="impacto">
-                <h2>Centro de Operaciones</h2>
-                <p>La red de dispositivos está conectada a nuestro centro de monitoreo en tiempo real, operado exclusivamente por talento joven y personas con discapacidad motriz, garantizando empleos dignos de base tecnológica.</p>
+            <div class="bento-card" id="operaciones">
+                <div class="icon-wrapper" aria-hidden="true">02</div>
+                <h3>Centro de Monitoreo Central</h3>
+                <p>La red de dispositivos es supervisada 24/7. Nuestro modelo garantiza que las posiciones operativas clave sean ocupadas exclusivamente por jóvenes y especialistas con discapacidad motriz, dotándolos de independencia financiera.</p>
             </div>
         </div>
 
-        <div class="btn-container" id="talento">
-            <!-- OPERABLE: Botones amplios, separados y con propósito claro -->
-            <a href="#" class="btn" aria-label="Acceder al portal de reclutamiento inclusivo">Portal de Talento</a>
-            <a href="#" class="btn btn-outline" aria-label="Solicitar propuesta comercial B2B o B2G">Contacto Comercial</a>
+        <div class="feature-banner" aria-label="Instalaciones corporativas de Calles Vivas">
+            <!-- ACCESIBILIDAD: Atributo alt altamente descriptivo -->
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="Sala de servidores y centro de control tecnológico corporativo, iluminado con luz azul, representando nuestro entorno de trabajo 100% accesible.">
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Calles Vivas. Desarrollo estructurado bajo criterios de Accesibilidad Web (Metodología POUR).</p>
+        <p>&copy; 2026 Calles Vivas. Arquitectura web diseñada por expertos bajo la Metodología POUR y estándares W3C.</p>
     </footer>
 
 </body>
