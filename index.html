@@ -2,117 +2,214 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- ROBUST: Meta viewport asegura que el diseño sea responsivo en celulares -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calles Vivas - Tecnología e Inclusión</title>
+    <title>Calles Vivas | Soluciones Smart City</title>
+    <!-- Importación de tipografías corporativas -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* PERCEIVABLE: Alto contraste (Fondo blanco, texto muy oscuro, detalles en azul marino) */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --primary: #003366; 
-            --focus-outline: #ffcc00;
+            /* Paleta corporativa de alto contraste (PERCEIVABLE) */
+            --primary-dark: #0B132B;   /* Azul nocturno profundo */
+            --primary-blue: #1C2541;   /* Azul corporativo */
+            --accent-cyan: #00A8E8;    /* Acento tecnológico */
+            --text-main: #1A1F36;      /* Gris muy oscuro para lectura cómoda */
+            --text-muted: #4F566B;     /* Gris medio */
+            --bg-light: #F7F9FC;       /* Fondo gris extra claro */
+            --white: #FFFFFF;
+            --focus-ring: #FFB000;     /* Amarillo para alto contraste de teclado */
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            font-size: 18px; /* UNDERSTANDABLE: Letra grande y legible */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
+            font-size: 18px; /* UNDERSTANDABLE: Tamaño óptimo para lectura */
         }
-        /* OPERABLE: Indicador visual claro cuando se navega con la tecla TAB */
-        a:focus, button:focus {
-            outline: 4px solid var(--focus-outline);
-            outline-offset: 4px;
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+
+        /* OPERABLE: Enfoque claro para navegación por teclado */
+        a:focus, button:focus, input:focus {
+            outline: 4px solid var(--focus-ring);
+            outline-offset: 3px;
         }
-        header { 
-            background-color: var(--primary); 
-            color: white; 
-            padding: 40px 20px; 
-            text-align: center; 
+
+        /* Barra de navegación ejecutiva */
+        header {
+            background-color: var(--primary-dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        /* UNDERSTANDABLE: Navegación simple y predecible */
-        nav { 
-            background-color: #333; 
-            text-align: center; 
-            padding: 10px;
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
         }
-        nav a { 
-            color: white; 
-            text-decoration: none; 
-            padding: 15px 25px; 
-            display: inline-block; 
-            font-weight: bold;
+
+        .logo { color: var(--white); font-size: 1.5rem; font-weight: 800; text-decoration: none; letter-spacing: 1px;}
+        .logo span { color: var(--accent-cyan); }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        nav a:hover { background-color: #555; }
-        main { padding: 20px; max-width: 900px; margin: 0 auto; }
-        h2 { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 5px;}
-        .hero { text-align: center; margin-bottom: 40px; }
-        .img-container img {
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        
+        nav a:hover { color: var(--accent-cyan); }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 100px 30px;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-cyan);
         }
-        .buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-        /* OPERABLE: Botones grandes y separados para personas con dificultades motrices finas */
+
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; max-width: 800px; margin: 0 auto 40px auto; color: #D1D5DB; }
+
+        /* Contenedor principal */
+        main {
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Diseño en Tarjetas (Cards) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-dark);
+        }
+
+        .card h2 { color: var(--primary-dark); margin-bottom: 15px; font-size: 1.5rem; }
+        
+        .image-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botones corporativos (OPERABLE) */
+        .btn-container { text-align: center; margin-top: 50px; }
+        
         .btn {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px 35px;
-            font-size: 1.2rem;
+            display: inline-block;
+            background-color: var(--accent-cyan);
+            color: var(--primary-dark);
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 8px;
-            font-weight: bold;
-            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s;
         }
-        footer { background: #f1f1f1; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem;}
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary-dark);
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0, 168, 232, 0.3); }
+        .btn-outline:hover { background-color: var(--primary-dark); color: var(--white); }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* ROBUST: Diseño adaptativo para dispositivos móviles */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 15px; }
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 60px 20px 80px 20px; }
+            .btn { display: block; width: 100%; margin: 15px 0; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Calles Vivas</h1>
-        <p>Proyecciones Holográficas para la Seguridad Peatonal y el Empoderamiento Social</p>
+        <div class="nav-container">
+            <a href="#" class="logo">CALLES<span>VIVAS</span></a>
+            <!-- UNDERSTANDABLE: Menú claro y predecible -->
+            <nav aria-label="Navegación principal">
+                <a href="#soluciones">Soluciones</a>
+                <a href="#impacto">Impacto ESG</a>
+                <a href="#talento">Talento Inclusivo</a>
+            </nav>
+        </div>
     </header>
 
-    <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#impacto">Nuestro Impacto</a>
-        <a href="#equipo">Únete al Equipo</a>
-    </nav>
+    <section class="hero">
+        <h1>Inteligencia Urbana para Vías Seguras</h1>
+        <p>Implementamos sistemas de proyecciones holográficas peatonales operadas por centros de monitoreo inclusivos. Tecnología de vanguardia que protege vidas y fomenta la integración laboral.</p>
+    </section>
 
     <main>
-        <section id="inicio" class="hero">
-            <h2>Tecnología Operada por Talento Sin Límites</h2>
-            <p>Hacemos que las ciudades sean más seguras para los peatones utilizando proyecciones de luz en cruces peligrosos, operadas 100% por jóvenes y personas con discapacidad motriz.</p>
-            <div class="img-container">
-                <!-- PERCEIVABLE: Atributo alt descriptivo para lectores de pantalla -->
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Persona usando una computadora en una oficina moderna y accesible, ilustrando inclusión laboral.">
-            </div>
-        </section>
+        <div class="image-card">
+            <!-- PERCEIVABLE: Texto alternativo detallado -->
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1200&q=80" alt="Vista interior de oficinas corporativas modernas iluminadas por el sol, representando el entorno laboral inclusivo de nuestro equipo de monitoreo.">
+        </div>
 
-        <section id="impacto">
-            <h2>¿Cómo Funciona?</h2>
-            <p>Nuestros sistemas generan barreras visuales que detienen a los vehículos. Detrás de esta tecnología, existe un centro de monitoreo donde ofrecemos empleos formales, capacitación tecnológica continua y un entorno laboral 100% accesible.</p>
-        </section>
-
-        <section id="equipo">
-            <h2>Transfórmate en un Gestor de Smart Cities</h2>
-            <p>Si buscas un espacio donde tus habilidades técnicas transformen vidas y mejoren la ciudad, este es tu lugar. Contamos con procesos de reclutamiento empáticos y accesibles.</p>
-            <div class="buttons">
-                <!-- OPERABLE: Áreas de clic amplias -->
-                <a href="#" class="btn" aria-label="Formulario para postularse a una vacante">Únete al equipo</a>
-                <a href="#" class="btn" aria-label="Formulario de contacto general">Contáctanos</a>
+        <div class="card-grid">
+            <div class="card" id="soluciones">
+                <h2>Tecnología Holográfica</h2>
+                <p>Nuestra infraestructura B2G genera barreras visuales de alto impacto en cruces críticos. Los hologramas actúan como reductores de velocidad psicológicos, disminuyendo la siniestralidad urbana mediante tecnología no invasiva.</p>
             </div>
-        </section>
+            
+            <div class="card" id="impacto">
+                <h2>Centro de Operaciones</h2>
+                <p>La red de dispositivos está conectada a nuestro centro de monitoreo en tiempo real, operado exclusivamente por talento joven y personas con discapacidad motriz, garantizando empleos dignos de base tecnológica.</p>
+            </div>
+        </div>
+
+        <div class="btn-container" id="talento">
+            <!-- OPERABLE: Botones amplios, separados y con propósito claro -->
+            <a href="#" class="btn" aria-label="Acceder al portal de reclutamiento inclusivo">Portal de Talento</a>
+            <a href="#" class="btn btn-outline" aria-label="Solicitar propuesta comercial B2B o B2G">Contacto Comercial</a>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Modelo de Negocio Inclusivo - Calles Vivas. Diseño basado en Metodología POUR.</p>
+        <p>&copy; 2026 Calles Vivas. Desarrollo estructurado bajo criterios de Accesibilidad Web (Metodología POUR).</p>
     </footer>
 
 </body>
